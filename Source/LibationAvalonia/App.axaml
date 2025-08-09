@@ -3,6 +3,7 @@
              xmlns:local="using:LibationAvalonia"
              xmlns:controls="using:LibationAvalonia.Controls"
              xmlns:dialogs="using:LibationAvalonia.Dialogs"
+             xmlns:fluentAvalonia="clr-namespace:FluentAvalonia.Styling;assembly=FluentAvalonia"
 			 x:Class="LibationAvalonia.App"
              Name="Libation">
 
@@ -57,15 +58,9 @@
 	</Application.Resources>
 
 	<Application.Styles>
-		<StyleInclude Source="avares://Avalonia.Controls.DataGrid/Themes/Fluent.xaml"/>
+		<fluentAvalonia:FluentAvaloniaTheme />
 		<StyleInclude Source="avares://Avalonia.Controls.ColorPicker/Themes/Fluent/Fluent.xaml" />
 		<StyleInclude Source="/Assets/LibationVectorIcons.xaml"/>
-		<FluentTheme>
-			<FluentTheme.Palettes>
-				<ColorPaletteResources x:Key="Light" />
-				<ColorPaletteResources x:Key="Dark" />
-			</FluentTheme.Palettes>
-		</FluentTheme>
 
 		<Style Selector="TextBox[IsReadOnly=true]">
 			<Setter Property="Background" Value="{DynamicResource SystemChromeDisabledHighColor}" />
