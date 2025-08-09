@@ -2,18 +2,12 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:fa="using:FluentAvalonia.UI.Controls"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         Width="800" Height="450"
         x:Class="LibationAvalonia.Dialogs.AccountsDialog"
         Title="Audible Accounts">
-	<Grid RowDefinitions="*,Auto">
-
-		<Grid.Styles>
-			<Style Selector="Button:focus">
-				<Setter Property="BorderBrush" Value="{DynamicResource SystemAccentColor}" />
-				<Setter Property="BorderThickness" Value="2" />
-			</Style>
-		</Grid.Styles>
+	<Grid Margin="10" RowDefinitions="*,Auto">
 
 		<DataGrid
 			Grid.Row="0"
@@ -23,23 +17,20 @@
 			AutoGenerateColumns="False"
 			IsReadOnly="False"
 			Name="accountsGrid"
-			ItemsSource="{Binding Accounts}"
-			GridLinesVisibility="All">
+			ItemsSource="{Binding Accounts}">
 
 			<DataGrid.Columns>
 
 				<DataGridTemplateColumn Header="Delete">
 					<DataGridTemplateColumn.CellTemplate>
 						<DataTemplate>
-
-							<Button
-								Content="X"
+							<Button Classes="Flat"
 								VerticalAlignment="Stretch"
-								HorizontalAlignment="Stretch"
-								HorizontalContentAlignment="Center"
+								HorizontalAlignment="Center"
 								IsEnabled="{Binding !IsDefault}"
-								Click="DeleteButton_Clicked" />
-
+								Click="DeleteButton_Clicked">
+                                <fa:SymbolIcon Symbol="Delete" />
+                            </Button>
 						</DataTemplate>
 					</DataGridTemplateColumn.CellTemplate>
 				</DataGridTemplateColumn>
@@ -47,16 +38,14 @@
 				<DataGridTemplateColumn Header="Export">
 					<DataGridTemplateColumn.CellTemplate>
 						<DataTemplate>
-
 							<Button
-								Content="Export"
 								VerticalAlignment="Stretch"
-								HorizontalAlignment="Stretch"
-								HorizontalContentAlignment="Center"
+								HorizontalAlignment="Center"
 								IsEnabled="{Binding !IsDefault}"
 								ToolTip.Tip="Export account authorization to audible-cli"
-								Click="ExportButton_Clicked" />
-
+								Click="ExportButton_Clicked" >
+                                <fa:SymbolIcon Symbol="Export" />
+                            </Button>
 						</DataTemplate>
 					</DataGridTemplateColumn.CellTemplate>
 				</DataGridTemplateColumn>
@@ -100,22 +89,22 @@
 
 			</DataGrid.Columns>
 		</DataGrid>
-		<Grid
+		<StackPanel
 			Grid.Row="1"
-			Margin="10"
-			ColumnDefinitions="*,Auto" >
+			Margin="0,10,0,0"
+            Orientation="Horizontal"
+            HorizontalAlignment="Right"
+            Spacing="10">
 
 			<Button
-				Grid.Column="0"
 				Padding="5,5"
 				Content="Import from audible-cli"
 				Click="ImportButton_Clicked" />
 
 			<Button
-				Grid.Column="1"
 				Padding="30,5"
 				Content="Save"
 				Click="SaveButton_Clicked" />
-		</Grid>
+		</StackPanel>
 	</Grid>
 </Window>

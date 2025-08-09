@@ -15,6 +15,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using FluentAvalonia.UI.Controls;
 
 namespace LibationAvalonia.Views
 {
@@ -30,12 +31,16 @@ namespace LibationAvalonia.Views
 
 			AudibleApiStorage.LoadError += AudibleApiStorage_LoadError;
 			InitializeComponent();
+
+			var navigationView = this.FindControl<NavigationView>("NavigationView");
+			navigationView.ItemInvoked += NavigationView_ItemInvoked;
+
 			Configure_Upgrade();
 
 			Opened += MainWindow_Opened;
 			Closing += MainWindow_Closing;
 
-			KeyBindings.Add(new KeyBinding { Command = ReactiveCommand.Create(selectAndFocusSearchBox), Gesture = new KeyGesture(Key.F, Configuration.IsMacOs ? KeyModifiers.Meta : KeyModifiers.Control) });
+			KeyBindings.Add(new KeyBinding { Command = ReactiveCommand.Create(() => filterSearchTb.Focus()), Gesture = new KeyGesture(Key.F, Configuration.IsMacOs ? KeyModifiers.Meta : KeyModifiers.Control) });
 
 			if (!Configuration.IsMacOs)
 			{
@@ -119,6 +124,9 @@ namespace LibationAvalonia.Views
 
 		private async void MainWindow_Opened(object sender, EventArgs e)
 		{
+			var navigationView = this.FindControl<NavigationView>("NavigationView");
+			navigationView.SelectedItem = navigationView.MenuItems.ElementAt(0);
+
 			if (AudibleFileStorage.BooksDirectory is null)
 			{
 				var result = await MessageBox.Show(
@@ -150,12 +158,6 @@ namespace LibationAvalonia.Views
 		{
 			productsDisplay?.CloseImageDisplay();
 			this.SaveSizeAndLocation(Configuration.Instance);
-		}
-
-		private void selectAndFocusSearchBox()
-		{
-			filterSearchTb.SelectAll();
-			filterSearchTb.Focus();
 		}
 
 		public async Task OnLibraryLoadedAsync(List<LibraryBook> initialLibrary)
@@ -222,5 +224,13 @@ namespace LibationAvalonia.Views
 		}
 
 		private void setProgressVisible(bool visible) => ViewModel.DownloadProgress = visible ? 0 : null;
+
+		private void NavigationView_ItemInvoked(object sender, NavigationViewItemInvokedEventArgs e)
+		{
+			if (e.IsSettingsInvoked)
+			{
+				ViewModel.ShowSettingsAsync();
+			}
+		}
 	}
 }
