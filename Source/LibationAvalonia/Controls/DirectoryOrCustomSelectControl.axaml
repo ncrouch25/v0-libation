@@ -1,0 +1,34 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:controls="clr-namespace:LibationAvalonia.Controls"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="LibationAvalonia.Controls.DirectoryOrCustomSelectControl">
+	
+	<Grid ColumnDefinitions="Auto,*" RowDefinitions="Auto,Auto" Name="grid">
+		<controls:DirectorySelectControl
+			Grid.Column="1"
+			Grid.Row="0"
+			IsEnabled="{Binding KnownChecked}"
+			SelectedDirectory="{Binding SelectedDirectory, Mode=TwoWay}"
+			SubDirectory="{Binding $parent[1].SubDirectory}"
+			KnownDirectories="{Binding $parent[1].KnownDirectories}" />
+
+		<RadioButton
+			Grid.Column="0"
+			Grid.Row="0"
+			IsChecked="{Binding KnownChecked, Mode=TwoWay}"/>
+
+		<RadioButton
+			Grid.Column="0"
+			Grid.Row="1"
+			IsChecked="{Binding CustomChecked, Mode=TwoWay}"/>
+
+		<Grid Grid.Column="1" Grid.Row="1" ColumnDefinitions="*,Auto"
+			  IsEnabled="{Binding CustomChecked}">
+			<TextBox Grid.Column="0" IsReadOnly="True" Text="{Binding CustomDir, Mode=TwoWay}" />
+			<Button Grid.Column="1" Content="..." Margin="5,0,0,0" Padding="10,0,10,0" Click="CustomDirBrowseBtn_Click" VerticalAlignment="Stretch" />
+		</Grid>
+	</Grid>
+</UserControl>

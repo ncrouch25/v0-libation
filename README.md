@@ -1,30 +1,74 @@
-# Libation
+# Libation: Liberate your Library
 
-*Automatically synced with your [v0.dev](https://v0.dev) deployments*
+## [Download Libation](https://github.com/rmcrackan/Libation/releases/latest)
 
-[![Deployed on Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black?style=for-the-badge&logo=vercel)](https://vercel.com/noahcrouch-9529s-projects/v0-libation)
-[![Built with v0](https://img.shields.io/badge/Built%20with-v0.dev-black?style=for-the-badge)](https://v0.dev/chat/projects/5YKBnsnb3lJ)
+### If you found this useful, tell a friend. If you found this REALLY useful, you can click here to [PayPal.me](https://paypal.me/mcrackan?locale.x=en_us)
+...or just tell more friends. As long as I'm maintaining this software, it will remain **free** and **open source**.
 
-## Overview
 
-This repository will stay in sync with your deployed chats on [v0.dev](https://v0.dev).
-Any changes you make to your deployed app will be automatically pushed to this repository from [v0.dev](https://v0.dev).
 
-## Deployment
+# Table of Contents
 
-Your project is live at:
+- [Audible audiobook manager](#audible-audiobook-manager)
+    - [The good](#the-good)
+    - [The bad](#the-bad)
+    - [The ugly](#the-ugly)
+- [Getting started](Documentation/GettingStarted.md)
+    - [Download Libation](Documentation/GettingStarted.md#download-libation-1)
+    - [Installation](Documentation/GettingStarted.md#installation)
+    - [Create Accounts](Documentation/GettingStarted.md#create-accounts)
+    - [Import your library](Documentation/GettingStarted.md#import-your-library)
+    - [Download your books -- DRM-free!](Documentation/GettingStarted.md#download-your-books----drm-free)
+    - [Download PDF attachments](Documentation/GettingStarted.md#download-pdf-attachments)
+    - [Details of downloaded files](Documentation/GettingStarted.md#details-of-downloaded-files)
+    - [Export your library](Documentation/GettingStarted.md#export-your-library)
+    - If you still need help, [you can open an issue here](https://github.com/rmcrackan/Libation/issues) for bug reports, feature requests, or specialized help.
+- [Searching and filtering](Documentation/SearchingAndFiltering.md)
+    - [Tags](Documentation/SearchingAndFiltering.md#tags)
+    - [Searches](Documentation/SearchingAndFiltering.md#searches)
+    - [Search examples](Documentation/SearchingAndFiltering.md#search-examples)
+    - [Filters](Documentation/SearchingAndFiltering.md#filters)
+- [Advanced](Documentation/Advanced.md)
+    - [Files and folders](Documentation/Advanced.md#files-and-folders)
+    - [Settings](Documentation/Advanced.md#settings)
+    - [Custom File Naming](Documentation/NamingTemplates.md)
+    - [Command Line Interface](Documentation/Advanced.md#command-line-interface)
+    - [Custom Theme Colors](Documentation/Advanced.md#custom-theme-colors) (Chardonnay Only)
+- [Docker](Documentation/Docker.md)
+- [Frequently Asked Questions](Documentation/FrequentlyAskedQuestions.md)
 
-**[https://vercel.com/noahcrouch-9529s-projects/v0-libation](https://vercel.com/noahcrouch-9529s-projects/v0-libation)**
+## Getting started
 
-## Build your app
+* [Download](https://github.com/rmcrackan/Libation/releases/latest)
+* [Step-by-step walk-through](Documentation/GettingStarted.md)
 
-Continue building your app on:
+## Audible audiobook manager
 
-**[https://v0.dev/chat/projects/5YKBnsnb3lJ](https://v0.dev/chat/projects/5YKBnsnb3lJ)**
+### The good
 
-## How It Works
+* Import library from audible, including cover art
+* Download and remove DRM from all books
+* Download accompanying PDFs
+* Add tags to books for better organization
+* Powerful advanced search built on the Lucene search engine
+* Customizable saved filters for common searches
+* Open source
+* Supports most regions: US, UK, Canada, Germany, France, Australia, Japan, India, and Spain
+* Fully supported in Windows, Mac, and Linux
 
-1. Create and modify your project using [v0.dev](https://v0.dev)
-2. Deploy your chats from the v0 interface
-3. Changes are automatically pushed to this repository
-4. Vercel deploys the latest version from this repository
+<a name="theBad"/>
+
+### The bad
+
+* Large file size
+* Made by a programmer, not a designer so the goals are function rather than beauty. And it shows
+
+### The ugly
+
+* Documentation? Yer lookin' at it
+* This is a single-developer personal passion project. Support, response, updates, enhancements, bug fixes etc are as my free time allows
+* I have a full-time job, a life, and a finite attention span. Therefore a lot of time can potentially go by with no improvements of any kind
+
+Disclaimer: I've made every good-faith effort to include nothing insecure, malicious, anti-privacy, or destructive. That said: use at your own risk.
+
+I made this for myself and I want to share it with the great programming and audible/audiobook communities which have been so generous with their time and help.
