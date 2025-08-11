@@ -141,17 +141,6 @@ namespace LibationAvalonia.Views
 					await new SettingsDialog().ShowDialog(this);
 			}
 
-			if (Configuration.Instance.FirstLaunch)
-			{
-				var result = await MessageBox.Show(this, "Would you like a guided tour to get started?", "Libation Walkthrough", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
-
-				if (result is DialogResult.Yes)
-				{
-					await new Walkthrough(this).RunAsync();
-				}
-
-				Configuration.Instance.FirstLaunch = false;
-			}
 		}
 
 		private void MainWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
